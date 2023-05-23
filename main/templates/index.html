@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block loader %} {% include 'loader.html' %} {% endblock loader %}
+{% block header %} {% include 'header.html' %} {% endblock header %}
+{% block carousel %} {% include 'carousel.html' %} {% endblock carousel %}
+{% block content %} 
+        
+<div class="container mt-5 mb-5">
+    <h1 class="text-center text-capitalize mb-5 title">Popular Products</h1>
+    <div class="row">
+        {% for product in popular %}
+        <div class="col-12 col-md-6 col-lg-3 mt-3">
+            <div class="card popcard">
+                <a href="{% url 'detail' product.id product.slug %}"><img src="{{product.img.url}}" class="card-img-top" alt="..." ></a>
+                <div class="card-body">
+                  <h5 class="card-title text-capitalize text-center">{{product.name}}</h5>
+                  <p class="card-text text-center">N{{product.price}}</p>
+                  <form action="{% url 'add_to_cart' %}" method="POST">
+                    {% csrf_token %}
+                    <input type="hidden" name="itemid" value="{{product.id}}">
+                    <input type="hidden" name="quantity" value="1" >
+                    <button type="submit" class="btn btn-warning">Add to cart</button>
+                  </form>
+                </div>
+            </div>
+        </div>   
+        {% endfor %}
+            
+    </div>
+</div>
+
+
+<div class="container-fluid mt-4 mb-5 catsec">
+  <h1 class="text-capitalize text-white  pt-3">Shop by category</h1>
+  <div class="row categ pt-3 pb-5">
+    {% for category in categ %}
+    <div class="col-12 col-md-6 col-lg-3">
+        <a href="{% url 'category' category.id %}">
+          <div class="card">
+            <a href="{% url 'detail' category.id category.slug %}"><img src="{{category.catimg.url}}" alt="" class="card-img-top"></a>
+            <h5 class="bg-dark text-white text-capitalize text-center">{{category.name}}</h5>
+          </div>
+        </a>
+    </div>   
+    {% endfor %}
+
+    <div class="col-12 col-md-6 col-lg-3">
+      <div class="card">
+        <img src="/img/ww-4.jpg" alt="" class="card-img-top">
+        <h5 class="bg-dark text-white text-capitalize text-center">Kids wear</h5>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<div class="continer mt-5 mb-5">
+  <h1 class="text-center text-capitalize title">featured products</h1>
+  <div class="row">
+    {% for product in featured %}
+    <div class="col-12 col-md-6 col-lg-3">
+      <div class="card featcard">
+        <a href="{% url 'detail' product.id product.slug %}"><img src="{{product.img.url}}" class="card-img-top">  </a>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ">
+        <div class="card-body">
+          <h5 class="card-title text-capitalize text-center">{{product.name}}</h5>
+          <p class="card-text text-center">N{{product.price}}</p>
+          <button class="btn btn-warning">Add to cart</button>
+        </div>
+      </div>
+    </div> 
+    {% endfor %}
+  
+  
+  </div>
+</div>
+{% endblock content %}
+{% block footer %} {% include 'footer.html' %}{% endblock footer %}
+        

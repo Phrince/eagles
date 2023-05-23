@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block loader %} {% include 'loader.html' %} {% endblock loader %}
+{% block header %} {% include 'header.html' %} {% endblock header %}
+{% block banner %} {% include 'banner.html' %} {% endblock banner %}
+{% block content %} 
+<div class="container-fluid mt-5 mb-5">
+  <div class="row mt-5 cart">
+    <div class="col-12 col-md-6">
+     <h1 class="text-center text-capitalize title">order summary</h1>
+    <table>
+      <thead>
+        <th>img</th>
+        <th>item</th>
+        <th>price</th>
+        <th>quantity</th>
+        <th>amount</th>
+      </thead>
+    <tbody>
+      <tr class="item">
+        <td><img src="/img/cw-2.jpg" alt="" style="height: 50px;"></td>
+        <td>kids wear 101</td>
+        <td> ₦400</td>
+        <td>3</td>
+        <td> ₦800</td>
+      </tr>
+      <tr class="item">
+        <td><img src="/img/mw-2.jpg" alt="" style="height: 50px;"></td>
+        <td>kids wear 101</td>
+        <td> ₦400</td>
+        <td>1</td>
+        <td> ₦800</td>
+      </tr>
+      <tr class="item">
+        <td><img src="/img/ww-4.jpg" alt="" style="height: 50px;"></td>
+        <td>kids wear 101</td>
+        <td> ₦400</td>
+        <td>2</td>
+        <td> ₦800</td>
+      </tr>
+      <tr class="subtot">
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><span>subtotal</span> =</td>
+        <td>₦1600</td>
+      </tr>
+    </tbody>
+  </table>
+   </div>
+   <div class="col-12 col-md-6 checkout">
+    <form action="">
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form label">First Name </label>
+        <input type="text" class="form-control" id="exampleFormControlInput1">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form label">Last Name</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form label">Phone Number</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form label">Shipping Address</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form label">Email Address</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      </div>
+      <div class="mb-3 mt-5">
+        <button class="btn btn-warning text-capitalize">Pay Now</button>
+      </div>
+     </form>
+   </div>
+  </div>
+</div>
+  {% endblock content %}
+  {% block footer %} {% include 'footer.html' %}{% endblock footer %}

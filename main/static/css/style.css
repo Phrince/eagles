@@ -1,0 +1,635 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+body{
+    background: var(--bg) !important;
+    color: var(--text) !important;
+    overflow-y: hidden;
+    font-family: 'Bebas Neue', cursive !important ;
+    font-family: 'Fasthand', cursive;
+}
+.loader-con{
+    width: 100%;
+    height: 100vh;
+    background: rgb(255, 115, 115);
+    transition: all .5s ease;
+    position: absolute;
+    z-index: 9999999;
+    overflow: hidden !important;
+}
+.loader-con .loader{
+    width: 100px;
+    height: 100px;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    border: 15px dashed white;
+    position: absolute;
+    margin: auto;
+    border-top-color: darkgoldenrod;
+    border-radius: 50%;
+    animation: spin .8s linear infinite;
+}
+@keyframes spin{
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+
+/* header  */
+.navbar{
+    background-color: darkgoldenrod;
+}
+.navbar-nav a{
+    color: white;
+}
+.nav-item .dropdown-menu{
+    background-color: darkgoldenrod;
+}
+.wrapper{
+    position: relative;
+}
+.wrapper span{
+    position: absolute;
+    background-color: black;
+    font-size: 8px;
+    border-radius: 50%;
+}
+.nav-item img{
+    border-radius: 50%;
+}
+.container img{
+    height: 60px;
+}
+.david{
+    margin-left: 3%;
+    cursor: pointer;
+}
+:root{
+    --bg: white;
+    --icon: black;
+    --text: black;
+}
+.dark{
+    --bg: black;
+    --text: white;
+    --card: black;
+}
+
+/* header done  */
+
+/* styling carousel */
+.carousel-control-prev i{
+    font-size: 50px;
+    color: darkgoldenrod;
+}
+.carousel-control-next i{
+    font-size: 50px;
+    color: darkgoldenrod;
+}
+.carousel-indicators .active{
+    background-color: darkgoldenrod !important;
+}
+.carousel-item img{
+    height: 80vh;
+}
+/* styling carousel done  */
+
+/* styling content  */
+.card-body{
+    color: var(--card) !important;
+}
+.popcard{
+    text-align: center;
+    outline: 1px solid darkgoldenrod;
+    box-shadow: 0px 0px 30px  darkgoldenrod;
+    transition: 1s;
+    cursor: pointer;
+}
+.popcard:hover{
+    transform: translateY(-20px);
+}
+.popcard img{
+    height: 250px;
+    border-bottom: 2px solid darkgoldenrod;
+    box-shadow: 2px solid darkgoldenrod;
+    padding: 5%;
+}
+.popcard button{
+    background-color: darkgoldenrod;
+}
+.title::after{
+    content: '';
+    display: block;
+    width: 200px;
+    height: 5px;
+    background-color: darkgoldenrod;
+    margin-left: auto;
+    margin-right: auto;
+}
+.catsec{
+    background-color: darkgoldenrod;
+}
+.categ .card{
+    border-radius: 50%;
+    cursor: pointer;
+}
+.categ .card img{
+    border-radius: 50%;
+    height: 300px;
+    opacity: 1;
+    transition: 0.5s;
+    position: relative;
+}
+.categ .card img:hover{
+    transform: scale(1.2);
+}
+.categ .card h5{
+    position: absolute;
+    top: 80%;
+    left: 20%;
+    padding: 1% 10%;
+}
+.featcard{
+    text-align: center;
+    outline: 1px solid darkgoldenrod;
+    box-shadow: 0px 0px 30px darkgoldenrod;
+    transition: 3s;
+    cursor: pointer;
+    margin-bottom: 10%;
+}
+.featcard img{
+    height: 250px;
+    border-bottom: 2px solid darkgoldenrod;
+    padding: 5%;
+    transition: 2s;
+}
+.featcard img:hover{
+    transform: rotateY(180deg);
+}
+.featcard button{
+    background-color: darkgoldenrod;
+    border: none;
+}
+.paginate{
+    margin-left: 40%;
+}
+/* stling content done  */
+
+/* styling footer  */
+footer{
+    background-color: rgb(255, 228, 158);
+}
+.fitem h3{
+    font-size: 20px;
+    text-transform: capitalize;
+    margin-top: 5px;
+}
+
+.fitem ul i{
+    font-size: 30px;
+    color: darkgoldenrod;
+}
+.fitem ul i:hover{
+    color: black;
+}
+.fitem li{
+    padding-left: 5%;
+}
+.flink{
+    text-align: center;
+}
+.flink a{
+    text-decoration: none;
+    text-transform: capitalize;
+    color: black;
+    font-size: 18px;
+    font-weight: 500;
+}
+/* stling footer done  */
+
+
+/* styling banner page  */
+.banner{
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url(../img/banner.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 40vh;
+}
+
+/* styling banner done */
+
+/* styling contact */
+.contact label{
+    font-weight: 500;
+}
+.contact input:focus{
+    border: none;
+    outline: 2px solid darkgoldenrod;
+}
+.contact iframe{
+    height: 50vh;
+}
+/* styling contact done*/
+
+/* styling details */
+.det .card{
+    border: none;
+}
+.det .btn{
+    background-color: darkgoldenrod;
+    border: none;
+}
+.det p{
+    color: black;
+}
+.det label{
+    font-weight: 500;
+}
+.detcat{
+    font-weight: 500;
+    padding-top: 2%;
+    font-style: italic;
+    text-transform: capitalize;
+}
+.detcat span{
+    color: brown;
+}
+/* styling details done  */
+
+/* styling signup  */
+.signup form{
+    width: 50%;
+    margin-top: 20px;
+    margin-left: 25%;
+    margin-right: 25%;
+    border: 1px solid darkgoldenrod;
+    padding: 3%;
+    box-shadow: 0px 0px 30px brown;
+}
+.signup form label{
+    color: black;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+.signup form input:focus{
+    border: 1px solid darkgoldenrod !important;
+    outline: none !important;
+}
+.signup .btn{
+    background-color: darkgoldenrod;
+    width: 100%;
+    color: white;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+.signup p{
+    font-weight: 500;
+}
+.signup a{
+    text-decoration: none;
+    color: brown;
+}
+.pass{
+    position: relative;
+}
+.see{
+    position: absolute;
+    top: 55%;
+    right: 20px;
+    cursor: pointer;
+}
+.see .bi-eye-fill{
+    display: none;
+}
+.see.hide .bi-eye-fill{
+    display: block;
+}
+.see.hide .bi-eye-slash-fill{
+    display: none;
+}
+/* styling signup done  */
+
+
+/* styling cart  */
+.cart table{
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    border: 1px solid darkgoldenrod;
+    text-align: center;
+}
+.cart thead{
+    background-color: darkgoldenrod;
+    text-transform: capitalize;
+    color: white;
+}
+.item td{
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-weight: 500;
+    border: 1px solid darkgoldenrod;
+}
+.item img{
+    transition: 1s;
+    cursor: pointer;
+}
+.item img:hover{
+    transform: scale(5);
+}
+.subtot td{
+    padding-bottom: 2%;
+    font-weight: 500;
+}
+.subtot span{
+    font-size: 20px;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+.subtot button{
+    text-transform: capitalize;
+}
+#size option{
+    background-color: darkgoldenrod;
+}
+.checkout label{
+    text-transform: capitalize;
+    font-weight: 500;
+}
+.checkout input:focus{
+    border: 1px solid darkgoldenrod;
+}
+.checkout button{
+    text-transform: capitalize;
+}
+/* styling cart done  */
+
+/* styling profile */
+.pavat{
+    background-color: darkgoldenrod;
+    text-align: center;
+}
+.pavat h3{
+    font-style: italic;
+}
+.pavat img{
+    padding-top: 3%;
+    border-radius: 100%;
+    height: 200px;
+}
+.pavat li a{
+    text-decoration: none;
+    text-transform: capitalize;
+    color: white;
+    font-size: 20px;
+}
+.pavat li a:hover{
+    color: black;
+}
+.pform form{
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+}
+.pform label{
+    text-transform: capitalize;
+    font-weight: 500;
+}
+.pform button{
+    text-transform: capitalize;
+    width: 100%;
+    background-color: darkgoldenrod;
+    border: none;
+    color: white;
+    font-weight: 500;
+}
+.thanks{
+    text-align: center;
+}
+.thanks p{
+    font-size: 20px;
+}
+.thanks a{
+    text-decoration: none;
+}
+.thanks span{
+    color: brown;
+    font-weight: 500;
+}
+.thanks button{
+    background-color: darkgoldenrod;
+}
+/* styling profile done */
+
+@media (max-width:479px) {
+    .carousel-item img{
+        height: 40vh;
+    }
+    .carousel-control-prev i{
+        font-size: 20px;
+        color: darkgoldenrod;
+    }
+    .carousel-control-next i{
+        font-size: 20px;
+        color: darkgoldenrod;
+    }
+    .popcard{
+        text-align: center;
+        outline: 1px solid darkgoldenrod;
+        box-shadow: 0px 0px 30px  darkgoldenrod;
+        transition: 1s;
+        cursor: pointer;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 5%;
+    }
+    .categ .card{
+        border-radius: 100%;
+        cursor: pointer;
+        margin-top: 2%;
+        width: 70%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .categ .card h5{
+        position: absolute;
+        top: 80%;
+        left: 30%;
+        padding: 1% 10%;
+        font-size: 10px;
+    }
+    .categ .card img{
+        border-radius: 50%;
+        height: 200px;
+        opacity: 1;
+        transition: 0.5sec;
+        position: relative;
+    }
+    .fitem img{
+        height: 50px;
+    }
+    .featcard{
+        text-align: center;
+        outline: 1px solid darkgoldenrod;
+        box-shadow: 0px 0px 30px darkgoldenrod;
+        transition: 3s;
+        cursor: pointer;
+        margin-bottom: 10%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+}
+
+
+@media (max-width:767px) {
+    .carousel-item img{
+        height: 40vh;
+    }
+    .carousel-control-prev i{
+        font-size: 30px;
+        color: darkgoldenrod;
+    }
+    .carousel-control-next i{
+        font-size: 30px;
+        color: darkgoldenrod;
+    }
+    .popcard{
+        text-align: center;
+        outline: 1px solid darkgoldenrod;
+        box-shadow: 0px 0px 30px  darkgoldenrod;
+        transition: 1s;
+        cursor: pointer;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 7%;
+    }
+    .categ .card{
+        border-radius: 100%;
+        cursor: pointer;
+        margin-top: 2%;
+        width: 70%;
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+    .categ .card h5{
+        position: absolute;
+        top: 80%;
+        left: 30%;
+        padding: 1% 10%;
+        font-size: 10px;
+    }
+    .categ .card img{
+        border-radius: 50%;
+        height: 300px;
+        opacity: 1;
+        transition: 0.5sec;
+        position: relative;
+    }
+    .featcard{
+        text-align: center;
+        outline: 1px solid darkgoldenrod;
+        box-shadow: 0px 0px 30px darkgoldenrod;
+        transition: 3s;
+        cursor: pointer;
+        margin-bottom: 7%;
+        margin-top: 2%;
+    }
+    .featcard img{
+        height: 300px;
+        border-bottom: 2px solid darkgoldenrod;
+        padding: 5%;
+        transition: 2s;
+    }
+    .featcard img:hover{
+        transform: rotateY(180deg);
+    }
+    .fitem img{
+        height: 50px;
+    }
+    .fitem h3{
+        font-size: 20px;
+        text-transform: capitalize;
+        margin-top: 5px;
+        
+    }
+    .fitem li{
+        padding-left: 5%;
+        
+    }
+    .featcard{
+        text-align: center;
+        outline: 1px solid darkgoldenrod;
+        box-shadow: 0px 0px 30px darkgoldenrod;
+        transition: 3s;
+        cursor: pointer;
+        margin-bottom: 10%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+}
+
+@media  (max-width:800px) {
+    .carousel-item img{
+        height: 40vh;
+    }
+    .carousel-control-prev i{
+        font-size: 40px;
+        color: darkgoldenrod;
+    }
+    .carousel-control-next i{
+        font-size: 40px;
+        color: darkgoldenrod;
+    }
+    .popcard{
+        text-align: center;
+        outline: 1px solid darkgoldenrod;
+        box-shadow: 0px 0px 30px  darkgoldenrod;
+        transition: 1s;
+        cursor: pointer;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        margin-top: 7%;
+    }
+    .categ .card{
+        border-radius: 50%;
+        cursor: pointer;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+    .fitem img{
+        height: 50px;
+    }
+    .featcard{
+        text-align: center;
+        outline: 1px solid darkgoldenrod;
+        box-shadow: 0px 0px 30px darkgoldenrod;
+        transition: 3s;
+        cursor: pointer;
+        margin-bottom: 10%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .pavat img{
+        padding-top: 3%;
+        border-radius: 100%;
+        height: 150px;
+    }
+}
+@media (max-width:1024px) {
+    .categ .card h5{
+        position: absolute;
+        top: 80%;
+        left: 18%;
+        padding: 1% 10%;
+    }
+   
+}
