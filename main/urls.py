@@ -19,4 +19,6 @@ urlpatterns = [
     path('update', views.update, name='update'),
     path('checkout', views.checkout, name='checkout'),
     path('search', views.search, name='search'),
+    path('payment', views.payment, name='payment'),
+    path('thankyou', views.thankyou, name='thankyou')
 ]

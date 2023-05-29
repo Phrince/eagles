@@ -77,3 +77,18 @@ class Cart(models.Model):
     
     def __str__(self):
         return self.user.username
+    
+
+class Order(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    first_name = models.CharField(max_lenght=50)
+    lats_name = models.CharField(max_length=50)
+    phone = models.CharField(max_length=50)
+    address = models.TextField()
+    amount = models.IntegerField()
+    paid = models.BooleanField()
+    pay_code = models.Charfield(max_length=50)
+    purchase_date = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.user.username 

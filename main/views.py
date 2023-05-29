@@ -1,3 +1,8 @@
+import uuid
+import json
+import requests
+
+
 from distutils.log import info
 from msilib.schema import Feature
 from multiprocessing import context
@@ -6,6 +11,7 @@ from django.shortcuts import render, redirect
 from django.core.paginator import Paginator
 from django.contrib import messages
 from django.contrib.auth import logout, login,authenticate,update_session_auth_hash
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import PasswordChangeForm
 from django.db.models import Q
 from .forms import *
@@ -262,6 +268,7 @@ def update(request):
         messages.success(request, 'quantity added')
         return redirect('cart')
     
+@login_required(login_url='signin')
 def checkout(request):
     userprof = Customer.objects.get(user__username = request.user.username)
     cart = Cart.objects.filter(user__username = request.user.username)
@@ -285,5 +292,70 @@ def checkout(request):
     }
     
     return render(request, 'checkout.html', context)
+
+@login_required(login_url='signin')
+def payment(request):
+    if request.method == 'POST':
+        profile = Customer.objects.get(user__username = request.user.username)
+        api_key = 'sk_test_13d9f1b290b8558ff51fa103bfc192bfc79eab57' #secret key from paystack
+        curl = 'https://paystack.com/uglyboy' #paystack call back url
+        cburl = 'http://13.48.136.31/thankyou' #thank you page
+        ref = str(uuid.uuid4()) #reference id required by paystack as an additional reference number
+        order_no = profile.id
+        amount = float(request.POST['total']) * #the total amount that would be charged
+        email = profile.email
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        address = request.POST['address']
+        phone = request.POST['phone']
+        
+        #collect data to send to psaystack via call url
+        headers = {'Authorization': f'Bearer {api_key}'}
+        data = {'reference':ref, 'amount':int(amount), 'email':email, 'callback_url':cburl, 'order_number':order_no, 'currency':'NGN'}
+        
+        
+        #Make a Call to Paystack
+        try:
+            r = requests.post(curl, headers=headers, json=data)
+        except Exception:
+            messages.error(request, 'network busy, try again later')
+        else:
+            transback = json.loads(r.text)
+            rdurl = transback['data']['authorization_url']
+            
+            
+            account = Order()
+            account.user = profile.user
+            account.first_name = first_name
+            account.last_name = last_name
+            account.phone = phone
+            account.address = address
+            account.amount = amount/100
+            account.paid = True
+            account.pay_code = ref
+            account.save()
+            
+            return redirect(rdurl)
+    return redirect('checkout')
+
+@login_required(login_url='signin')
+def thankyou(request):
+    userprof = Customer.objects.get(user__username = request.user.username)
+    cart = Cart.objects.filter(user__username =request.user.username, paid=False)
+    
+    for item in cart:
+        item.paid=True
+        item.save()
+        
+        Product = product.objects.get(pk=item.product.id)
+        
+    
+    context ={
+        'userprof':userprof,
+        'cart':cart,
+        'Product':Product
+    }
+    
+    return render(request, 'callback.html',context)
 
              
